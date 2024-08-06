@@ -1,15 +1,18 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
-import DefaultLayout from "../layout/DefaultLayout"
-import { lazy, Suspense } from "react"
-import Loading from "../components/common/Loading"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import DefaultLayout from "../layout/DefaultLayout";
+import { lazy, Suspense } from "react";
+import Loading from "../components/common/Loading";
 
-const PrivateRouter = lazy(() => import("./PrivateRouter"))
-const Error = lazy(() => import("../pages/Error"))
-const Home = lazy(() => import("../pages/Home"))
-const MemberProfile = lazy(() => import("../pages/MemberProfile"))
-const PayConfigProfile = lazy(() => import("../pages/PayConfig"))
-const InvoiceConfig = lazy(() => import("../pages/InvoiceConfig"))
-const TransactionHistory = lazy(() => import("../pages/TransactionHistory"))
+const PrivateRouter = lazy(() => import("./PrivateRouter"));
+const Error = lazy(() => import("../pages/Error"));
+const Home = lazy(() => import("../pages/Home"));
+const MemberProfile = lazy(() => import("../pages/MemberProfile"));
+const PayConfigProfile = lazy(() => import("../pages/PayConfig"));
+const InvoiceConfig = lazy(() => import("../pages/InvoiceConfig"));
+const TransactionHistory = lazy(() => import("../pages/TransactionHistory"));
+const TransactionHistoryId = lazy(
+  () => import("../pages/TransactionHistory/id")
+);
 
 const routes = [
   {
@@ -78,16 +81,25 @@ const routes = [
               </Suspense>
             ),
           },
+          // 交易紀錄(動態路由)
+          {
+            path: "transactionHistory/:id",
+            element: (
+              <Suspense fallback={<Loading />}>
+                <TransactionHistoryId />
+              </Suspense>
+            ),
+          },
         ],
       },
     ],
   },
-]
+];
 
-const router = createBrowserRouter(routes)
+const router = createBrowserRouter(routes);
 
 const Routes = () => {
-  return <RouterProvider router={router} />
-}
+  return <RouterProvider router={router} />;
+};
 
-export default Routes
+export default Routes;

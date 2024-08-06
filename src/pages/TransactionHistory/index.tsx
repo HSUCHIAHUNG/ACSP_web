@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Helmet, HelmetProvider } from "react-helmet-async";
 // json
 import TransactionHistoryList from "../../data/transactionHistory.json";
+import { Link } from "react-router-dom";
 
 const TransactionHistory = () => {
   // 交易紀錄目前日期區間
@@ -50,7 +51,8 @@ const TransactionHistory = () => {
         {/* 發票紀錄項目 */}
         <div className={`flex flex-col gap-[10px]`}>
           {TransactionHistoryList.map((item) => (
-            <button
+            <Link
+              to={`${item.id}`}
               key={item.id}
               className={` flex justify-between items-center border border-solid border-[#E95520]/40 rounded-[5px] p-[20px] bg-[#fff] shadow-md group hover:bg-[#E95520]/80 hover:text-[#fff]`}
             >
@@ -67,7 +69,7 @@ const TransactionHistory = () => {
               >
                 {item.payment_status}
               </p>
-            </button>
+            </Link>
           ))}
         </div>
       </HelmetProvider>

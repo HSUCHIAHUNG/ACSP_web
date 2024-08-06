@@ -24,7 +24,9 @@ const FixedContent = () => {
   }, [pathname]);
 
   return (
-    <div className={` ${currentPath === "/transactionHistory" && "hidden"}`}>
+    <div
+      className={` ${currentPath.includes("/transactionHistory") && "hidden"}`}
+    >
       {/* 頭像、姓名 */}
       <div className={`flex gap-[10px] my-[10px]`}>
         <Avatar
