@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "check_in": "2024/08/06 13:10",
+    "check_out": "2024/08/06 14:20",
+    "payment_status": "已繳費"
+  },
+  {
+    "id": 2,
+    "check_in": "2024/08/06 09:45",
+    "check_out": "2024/08/06 11:00",
+    "payment_status": "待繳費"
+  },
+  {
+    "id": 3,
+    "check_in": "2024/08/06 10:30",
+    "check_out": "2024/08/06 12:15",
+    "payment_status": "已繳費"
+  },
+  {
+    "id": 4,
+    "check_in": "2024/08/06 14:00",
+    "check_out": "2024/08/06 15:30",
+    "payment_status": "待繳費"
+  },
+  {
+    "id": 5,
+    "check_in": "2024/08/06 11:20",
+    "check_out": "2024/08/06 12:45",
+    "payment_status": "已繳費"
+  },
+  {
+    "id": 6,
+    "check_in": "2024/08/06 15:00",
+    "check_out": "2024/08/06 16:20",
+    "payment_status": "待繳費"
+  },
+  {
+    "id": 7,
+    "check_in": "2024/08/06 12:10",
+    "check_out": "2024/08/06 13:40",
+    "payment_status": "已繳費"
+  },
+  {
+    "id": 8,
+    "check_in": "2024/08/06 13:30",
+    "check_out": "2024/08/06 14:50",
+    "payment_status": "已繳費"
+  },
+  {
+    "id": 9,
+    "check_in": "2024/08/06 09:30",
+    "check_out": "2024/08/06 10:45",
+    "payment_status": "待繳費"
+  },
+  {
+    "id": 10,
+    "check_in": "2024/08/06 14:40",
+    "check_out": "2024/08/06 16:00",
+    "payment_status": "待繳費"
+  }
+]
