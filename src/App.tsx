@@ -1,14 +1,8 @@
 // router
-import Routes from "./router"
-// context
-import { TitleProvider } from "./context/Header"
+import Routes from "./router";
 
 function App() {
-  return (
-    <TitleProvider>
-      <Routes />
-    </TitleProvider>
-  )
+  return <Routes />;
 }
 
-export default App
+export default App;

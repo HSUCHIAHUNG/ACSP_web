@@ -7,7 +7,7 @@ const Header = () => {
 
   return (
     <div
-      className={` fixed z-50 top-0 left-0 right-0 flex justify-center items-center px-[1rem] leading-[34px] ssm:px-[2rem] bg-[#fff]  h-[60px]`}
+      className={` fixed z-50 top-0 left-0 right-0 shadow-md flex justify-center items-center px-[1rem] leading-[34px] ssm:px-[2rem] bg-[#fff]  h-[60px]`}
     >
       <button
         onClick={() => navigate("/")}

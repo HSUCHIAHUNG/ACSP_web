@@ -13,6 +13,7 @@ const TransactionHistory = lazy(() => import("../pages/TransactionHistory"));
 const TransactionHistoryId = lazy(
   () => import("../pages/TransactionHistory/id")
 );
+const PaymentResult = lazy(() => import('../pages/PaymentResult'))
 
 const routes = [
   {
@@ -87,6 +88,15 @@ const routes = [
             element: (
               <Suspense fallback={<Loading />}>
                 <TransactionHistoryId />
+              </Suspense>
+            ),
+          },
+          // 付款結果
+          {
+            path: "paymentResult",
+            element: (
+              <Suspense fallback={<Loading />}>
+                <PaymentResult />
               </Suspense>
             ),
           },

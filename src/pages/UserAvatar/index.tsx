@@ -19,14 +19,17 @@ const FixedContent = () => {
   // 依照路由控制顯示元素
   const lightboxIsHidden = currentPath === "/payConfig";
 
+  // 控制顯示
+  const isDisplay =
+    currentPath.includes("/transactionHistory") ||
+    currentPath.toLowerCase() === "/paymentResult".toLowerCase();
+
   useEffect(() => {
     setCurrentPath(pathname);
   }, [pathname]);
 
   return (
-    <div
-      className={` ${currentPath.includes("/transactionHistory") && "hidden"}`}
-    >
+    <div className={` ${isDisplay && "hidden"}`}>
       {/* 頭像、姓名 */}
       <div className={`flex gap-[10px] my-[10px]`}>
         <Avatar
