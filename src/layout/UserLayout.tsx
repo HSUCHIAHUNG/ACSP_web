@@ -2,8 +2,7 @@ import { useEffect } from "react";
 // router
 import { Outlet, useLocation } from "react-router-dom";
 // 組件
-import Header from "../components/layout/Header";
-import UserAvatar from "../pages/UserAvatar/index.tsx";
+import Header from "../components/layout/Header.tsx";
 
 function DefaultLayout() {
   // 當前路由
@@ -15,14 +14,16 @@ function DefaultLayout() {
   }, [pathname]);
 
   return (
-    <div className=" min-h-[100vh] w-full m-[0_auto] ssm:w-[579px] ">
-      <Header />
-      <div className="flex-1 relative pt-[62px] pb-[40px] px-[1rem] ssm:px-[2rem] ">
-        <UserAvatar></UserAvatar>
+    <>
+     
 
-        <Outlet />
+      <div className=" min-h-[100vh] w-full m-[0_auto] ssm:w-[579px] ">
+        <Header />
+        <div className="flex-1 relative pt-[62px] pb-[40px] px-[1rem] ssm:px-[2rem] ">
+          <Outlet />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

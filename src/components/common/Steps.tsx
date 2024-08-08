@@ -1,4 +1,10 @@
-const Steps = () => {
+import React from "react";
+
+interface StepsProps {
+  currentStep: number;
+}
+
+const Steps: React.FC<StepsProps> = ({ currentStep }) => {
   // 交易紀錄付款流程
   const transactionStepsList = [
     { id: 1, subtitle: "訂單資訊" },
@@ -8,7 +14,7 @@ const Steps = () => {
   ];
 
   return (
-    <ul className={` w-[90%] mt-[40px] mb-[60px] flex m-[0_auto]  `}>
+    <ul className={` w-[90%] mt-[40px] mb-[60px] flex m-[0_auto] `}>
       {transactionStepsList.map((step) => (
         <li
           key={step.id}
@@ -19,13 +25,13 @@ const Steps = () => {
           <div className={` flex items-center`}>
             <div
               className={`w-[10px] h-[10px]  rounded-full ${
-                step.id <= 2  ? "bg-[#E95520]/80" : "bg-[#c2c2c2]"
+                step.id <= currentStep ? "bg-[#E95520]/80" : "bg-[#c2c2c2]"
               }`}
             ></div>
             <div
               className={`w-full ssm h-[1px] bg-[#E95520]/80 ${
                 step.subtitle === "付款結果" ? "hidden" : "block"
-              } ${step.id < 2  ? "bg-[#E95520]/80" : "bg-[#c2c2c2]"}`}
+              } ${step.id < currentStep ? "bg-[#E95520]/80" : "bg-[#c2c2c2]"}`}
             ></div>
           </div>
           <div className={`absolute top-[10px] left-[-20px] break-keep  `}>

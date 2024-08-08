@@ -1,10 +1,27 @@
+import { Link } from "react-router-dom";
 import Steps from "../../components/common/Steps";
+// SEO
+import { Helmet } from "react-helmet-async";
+import { useContext, useEffect } from "react";
+import { TitleContext } from "../../provider";
 
 const PaymentResult = () => {
+  // context
+  const { setTitle } = useContext(TitleContext);
+
+  useEffect(() => {
+    setTitle("付款結果");
+  }, [setTitle]);
+
   return (
     <>
+      {/* web title */}
+      <Helmet>
+        <title>付款結果</title>
+      </Helmet>
+
       {/* 步驟條 */}
-      <Steps />
+      <Steps currentStep={4} />
 
       {/* 訂單詳情 */}
       <div
@@ -35,6 +52,13 @@ const PaymentResult = () => {
         {/* 歡迎再次光臨 */}
         <p className={`text-center text-[#757575]`}>歡迎再次光臨</p>
       </div>
+      <Link
+        to={"/transactionHistory"}
+        replace
+        className={` block mt-[15px] text-center bg-[#E95520]/80 w-full rounded-[5px] text-[#fff] p-[10px] text-[18px] hover:bg-[#E95520]`}
+      >
+        返回交易紀錄
+      </Link>
     </>
   );
 };

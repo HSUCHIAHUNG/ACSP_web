@@ -1,9 +1,15 @@
+import { useContext, useEffect } from "react";
 // SEO
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 // router
 import { NavLink } from "react-router-dom";
+// context
+import { TitleContext } from "../../provider/TitleProvider";
 
 const Home = () => {
+  // context
+  const { setTitle } = useContext(TitleContext);
+
   // 路由選項
   const menu = [
     { id: 1, name: "會員資料", path: "/memberProfile" },
@@ -12,8 +18,12 @@ const Home = () => {
     { id: 4, name: "交易紀錄", path: "/transactionHistory" },
   ];
 
+  useEffect(() => {
+    setTitle("會員中心");
+  }, [setTitle]);
+
   return (
-    <HelmetProvider>
+    <>
       {/* 頁面title */}
       <Helmet>
         <title>會員中心</title>
@@ -41,7 +51,7 @@ const Home = () => {
           </NavLink>
         ))}
       </div>
-    </HelmetProvider>
+    </>
   );
 };
 

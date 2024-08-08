@@ -1,2 +1,1 @@
-export * from "./transactionHistoryProvider";
-export * from "./HeaderProvider";
+export * from "./TitleProvider";

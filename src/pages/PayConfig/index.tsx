@@ -1,9 +1,20 @@
+import { useContext, useEffect } from "react";
 // SEO
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
+// context
+import { TitleContext } from "../../provider";
 
 const PayConfig = () => {
+  // context
+  const { setTitle } = useContext(TitleContext);
+
+  // 初次渲染設定title
+  useEffect(() => {
+    setTitle("付款設定");
+  }, [setTitle]);
+
   return (
-    <HelmetProvider>
+    <>
       {/* 頁面title */}
       <Helmet>
         <title>付款設定</title>
@@ -54,7 +65,7 @@ const PayConfig = () => {
           ，並立刻退還。未來，將自動儲存您的付款方式，不再進行預授權。
         </p>
       </div>
-    </HelmetProvider>
+    </>
   );
 };
 

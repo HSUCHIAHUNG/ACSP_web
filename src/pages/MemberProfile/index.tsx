@@ -1,7 +1,10 @@
+import { useContext, useEffect } from "react";
 // SEO
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
+// context
+import { TitleContext } from "../../provider";
 // ui kit
-import { Button, Form, Input, Select } from "@arco-design/web-react";
+import { Form, Input, Select } from "@arco-design/web-react";
 // style
 import "../../assets/memberProfile.css";
 // json
@@ -12,8 +15,16 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 
 const MemberProfile = () => {
+  // context
+  const { setTitle } = useContext(TitleContext);
+
+  // 初次渲染設定title
+  useEffect(() => {
+    setTitle("會員資料");
+  }, [setTitle]);
+
   return (
-    <HelmetProvider>
+    <>
       {/* 頁面title */}
       <Helmet>
         <title>會員資料</title>
@@ -62,15 +73,14 @@ const MemberProfile = () => {
           <FormItem label="地址" field="address" rules={[{ required: true }]}>
             <Input placeholder="請輸入地址" />
           </FormItem>
-          <Button
-            htmlType="submit"
-            className={`!bg-[#E95520]/80 !text-[#fff] hover:!bg-[#E95520]`}
+          <button
+            className={`mt-[15px] bg-[#E95520]/80 w-full rounded-[5px] text-[#fff] p-[10px] text-[18px] hover:bg-[#E95520]`}
           >
             確認
-          </Button>
+          </button>
         </Form>
       </div>
-    </HelmetProvider>
+    </>
   );
 };
 

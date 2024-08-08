@@ -1,13 +1,15 @@
 import React, { useRef } from "react";
 // router
 import { useNavigate } from "react-router-dom";
+// 型別
+import { StepsType } from "../../pages/TransactionHistory/type";
 
-interface orderDetailType {
+interface OrderDetailType {
   step: string;
   buttonText?: string;
   transactionState: {
-    transactionStep: string;
-    setTransactionStep: (step: string) => void;
+    transactionStep: StepsType;
+    setTransactionStep: (step: StepsType) => void;
   };
   invoice?: {
     store: string;
@@ -15,7 +17,7 @@ interface orderDetailType {
   };
 }
 
-const OrderDetail: React.FC<orderDetailType> = ({
+const OrderDetail: React.FC<OrderDetailType> = ({
   transactionState,
   buttonText,
   step,
@@ -37,7 +39,7 @@ const OrderDetail: React.FC<orderDetailType> = ({
 
     if (transactionStep === "付款資訊") {
       console.log(selectedPaymentMethod);
-      navigate("/PaymentResult");
+      navigate("/PaymentResult", { replace: true });
     }
   };
 
@@ -170,14 +172,25 @@ const OrderDetail: React.FC<orderDetailType> = ({
         </ul>
       </div>
 
-      {/* 按鈕 */}
+      {/* 下一步 */}
       <button
         onClick={submit}
         type="button" // Use type="button" to prevent unintended form submission
         className={`mt-[15px] bg-[#E95520]/80 w-full rounded-[5px] text-[#fff] p-[10px] text-[18px] hover:bg-[#E95520]`}
       >
-        {buttonText || "下一步"}
+        {buttonText ?? "下一步"}
       </button>
+
+      {/* 返回交易紀錄 */}
+      {transactionStep === "訂單資訊" && (
+        <button
+          onClick={() => navigate(-1)}
+          type="button" // Use type="button" to prevent unintended form submission
+          className={`mt-[15px] w-full rounded-[5px] text-[#E95520] p-[10px] text-[18px] border border-solid border-[#E95520] hover:bg-[#E95520] hover:text-[#fff]`}
+        >
+          返回交易紀錄
+        </button>
+      )}
     </div>
   );
 };
